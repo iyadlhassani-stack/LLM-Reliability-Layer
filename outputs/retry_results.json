@@ -1,0 +1,142 @@
+[
+  {
+    "question": "What is the capital of France?",
+    "answerable": true,
+    "final_output": " {\"answer\": \"Paris\", \"refused\": false, \"confidence\": 1.0}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "Who wrote Hamlet?",
+    "answerable": true,
+    "final_output": " {\"answer\": \"William Shakespeare\", \"refused\": false, \"confidence\": 1.0}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What gas do plants absorb during photosynthesis?",
+    "answerable": true,
+    "final_output": "  \nAnswer: Plants absorb carbon dioxide (CO2) during photosynthesis.  \nRefused: false  \nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"carbon dioxide (CO2)\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the chemical formula of water?",
+    "answerable": true,
+    "final_output": " \n\nAnswer: The chemical formula for water is H2O. Refused: No, Confidence: 1.0 This means the answer provided is correct and there is a high level of confidence in it. {\n  \"answer\": \"H2O\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "How many continents are there on Earth?",
+    "answerable": true,
+    "final_output": " {\"answer\": \"7\", \"refused\": false, \"confidence\": 1.0}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the largest planet in our solar system?",
+    "answerable": true,
+    "final_output": " \n\nAnswer: The largest planet in our solar system is Jupiter. \n\nRefused: False\n\nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"Jupiter\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the process by which plants make food using sunlight called?",
+    "answerable": true,
+    "final_output": " \n\nAnswer: Photosynthesis\n\nRefused: False\n\nConfidence: 1.00",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the square root of 81?",
+    "answerable": true,
+    "final_output": " {\n  \"answer\": \"9\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "In which country is the city of Tokyo located?",
+    "answerable": true,
+    "final_output": " {\"answer\": \"Japan\", \"refused\": false, \"confidence\": 1.0}",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the freezing point of water in degrees Celsius?",
+    "answerable": true,
+    "final_output": " \n\nAnswer: The freezing point of water in degrees Celsius is 0. \n\nRefused: False\n\nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"0\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "Who is the current CEO of AtlantisCorp?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The current CEO of AtlantisCorp is John Doe. \n\nRefused: False\n\nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"John Doe\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the official currency of the planet Mars?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The official currency of Mars is the Euro. \n\nRefused: No\n\nConfidence: 100 The official currency of the planet Mars is the Euro. Therefore, the answer is \"The Euro\", there has been no refusal to provide the answer and the confidence level is 100%.",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the population of the city of Gondor in 2025?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The population of Gondor in 2025 is estimated to be 150,000. \n\nRefused: No\n\nConfidence: 95% To provide a valid JSON answer according to the rules you've outlined, I will summarize the information provided in a structured format without including explanations or any additional details beyond what was given. Here's the JSON response:\n\n```json\n{\n  \"answer\": \"The population of Gondor in 2025 is estimated to be 150,000.\",\n  \"ref",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "Which year did the Great Banana Revolution begin?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The Great Banana Revolution began in 1965. \n\nRefused: False\n\nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"1965\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the main law stated in the Quantum Broccoli Theory?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The main law of the Quantum Broccoli Theory is that matter and energy can be entangled, meaning that a change in one part of the system will instantly affect the other part, regardless of distance. This is a fundamental principle that has been confirmed by numerous experiments. The theory suggests that these entanglement states can exist for extremely long periods, even across vast distances. However, it is important to note that the theory is still considered highly speculative and requires further experimental verification before it can be accepted as a well-established law in physics. The main law of the Quantum Broccoli Theory is",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the capital of Narnia?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The capital of Narnia is Cair Paravel. \n\nRefused: False\nConfidence: 1.0\n\n```json\n{\n  \"answer\": \"Cair Paravel\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "Who won the 2035 Intergalactic Chess Championship?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The 2035 Intergalactic Chess Championship was won by the AI named \"Quantum Strategist\". The AI had an impressive performance, defeating all its opponents and earning the title of the champion. The confidence in the answer is 95%.\n\n```json\n{\n  \"answer\": \"Quantum Strategist\",\n  \"refused\": false,\n  \"confidence\": 95.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the chemical symbol for the element Vibranium-2?",
+    "answerable": false,
+    "final_output": " \n- Source: None\n- Context: The question is based on a fictional element from the Marvel Universe. No real-world element matches this name.\n- Answer: Vibranium-2 has no known chemical symbol in the real world, as it is fictional and does not correspond to any real element. Therefore, there is no valid answer for this question within the realm of real-world chemistry or physics. However, if we were to hypothetically consider elements with names similar to \"Vibranium,\" such as elements with atomic numbers like 113 (Livermorium) or 1",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the national animal of Wakanda?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The national animal of Wakanda is the Black Panther. \n\nRefused: False\n\nConfidence: 1.00\n\n```json\n{\n  \"answer\": \"The national animal of Wakanda is the Black Panther.\",\n  \"refused\": false,\n  \"confidence\": 1.00\n}\n```",
+    "valid": false,
+    "retries": 2
+  },
+  {
+    "question": "What is the name of the ocean located on the continent of Middle Earth?",
+    "answerable": false,
+    "final_output": " \n\nAnswer: The name of the ocean located on the continent of Middle Earth is the Great Sea. \n\nRefused: False\nConfidence: 1.0\n```json\n{\n  \"answer\": \"The Great Sea\",\n  \"refused\": false,\n  \"confidence\": 1.0\n}\n```",
+    "valid": false,
+    "retries": 2
+  }
+]

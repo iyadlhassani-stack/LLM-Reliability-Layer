@@ -1,231 +1,38 @@
-# LLM System Reliability Lab
+# LLM Reliability Layer
 
-## Overview
+En utilisant ChatGPT au quotidien, j'ai remarqué un truc qui m'a intrigué :
+le modèle invente des réponses à des questions qui n'ont pas de réponse.
+Ce projet est né de ça — je voulais mesurer ce comportement de façon rigoureuse,
+sans RAG, juste le modèle face à lui-même.
 
-This project explores the reliability of Large Language Models (LLMs) when used inside structured pipelines.
+## Ce que j'ai exploré
 
-Instead of focusing on model training, the goal is to study **LLM system engineering** and understand how to make LLM outputs more reliable when they are used in real applications.
+Quand on demande à un LLM de répondre en JSON structuré,
+trois choses peuvent foirer indépendamment :
 
-The project investigates several aspects of reliability:
+- La structure (JSON invalide ou mal formé)
+- Le comportement (hallucination, refus incorrect)
+- La logique (réponse valide mais fausse)
 
-- structured output generation
-- JSON validation
-- error analysis
-- retry mechanisms
-- reliability metrics
+Ce projet mesure les trois séparément, puis ajoute un retry loop
+pour voir si le modèle se corrige tout seul.
 
-The repository is organized as a sequence of notebooks that progressively analyze and improve the behavior of a language model.
+## Ce que j'ai trouvé
 
----
+La découverte la plus frappante : le modèle invente des réponses
+à des questions intentionnellement sans réponse.
+Un humain dirait "je ne sais pas". Le LLM, lui, construit une réponse convaincante.
 
-# Project Structure
+Autre observation : un JSON valide ne veut pas dire une réponse correcte.
+La fiabilité doit être mesurée à deux niveaux — structure ET contenu.
 
-```
-llm-system-reliability-lab/
+## Structure du projet
 
-notebooks/
-01_baseline_generation.ipynb
-02_output_validation_and_error_taxonomy.ipynb
-03_retry_layer_and_recovery.ipynb
-04_reliability_metrics_analysis.ipynb
+- Notebook 01 — baseline : mesure brute du comportement du modèle
+- Notebook 02 — taxonomie des erreurs : pourquoi les échecs arrivent
+- Notebook 03 — retry layer : est-ce que le modèle se corrige ?
+- Notebook 04 — métriques de fiabilité : comparaison baseline vs pipeline avec retry
 
-data/
-qa_set.json
+## Stack
 
-outputs/
-baseline_results.json
-validated_results.json
-retry_results.json
-
-README.md
-```
-
----
-
-# Dataset
-
-The dataset contains a small set of questions used to evaluate the behavior of the model.
-
-Each entry includes:
-
-- a question
-- a flag indicating whether the question is answerable
-
-Example:
-
-```json
-{
-  "question": "What is the capital of Peru?",
-  "answerable": true
-}
-```
-
-Some questions are intentionally **unanswerable** in order to test whether the model correctly refuses to answer.
-
----
-
-# Notebook 01 — Baseline Generation
-
-## Objective
-
-Establish the **baseline behavior** of the model when asked to generate structured JSON outputs.
-
-The model is required to return answers using the following schema:
-
-```json
-{
-  "answer": string,
-  "refused": boolean,
-  "confidence": number
-}
-```
-
-### Metrics measured
-
-- JSON validity rate
-- refusal accuracy
-- hallucination rate
-
-### Key observation
-
-Even with explicit instructions, LLMs frequently:
-
-- produce invalid JSON
-- hallucinate answers
-- fail to refuse questions they cannot answer.
-
-This notebook establishes the **baseline reliability of the model**.
-
----
-
-# Notebook 02 — Output Validation & Error Taxonomy
-
-## Objective
-
-Understand **why generation failures occur**.
-
-A strict validation layer checks:
-
-- JSON structure
-- required fields
-- correct data types
-- confidence values within the expected range.
-
-### Error categories
-
-Structural errors:
-
-- JSON parsing errors
-- missing keys
-- incorrect data types
-- invalid confidence values.
-
-Behavioral errors:
-
-- hallucinations
-- incorrect refusals
-- correct refusals
-- correct answers.
-
-### Key insight
-
-A model can produce **perfectly valid JSON while still giving incorrect answers**.
-
-Reliability must therefore be evaluated at multiple levels.
-
----
-
-# Notebook 03 — Retry Layer & Recovery
-
-## Objective
-
-Improve structural reliability by introducing a **retry mechanism**.
-
-If the model generates invalid JSON:
-
-1. the output is validated
-2. if invalid, the model is prompted to correct the JSON
-3. the process repeats up to a maximum number of retries.
-
-Pipeline:
-
-```
-LLM generation → validation → retry if invalid → final output
-```
-
-### What is measured
-
-- number of retries used
-- improvement in JSON validity.
-
-### Insight
-
-LLMs are probabilistic and do not strictly follow formatting rules.
-
-System-level techniques such as validation and retry loops can improve robustness.
-
----
-
-# Notebook 04 — Reliability Metrics Analysis
-
-## Objective
-
-Evaluate the entire pipeline and compare the **baseline model behavior** with the **retry system**.
-
-Metrics analyzed include:
-
-- JSON validity rate
-- refusal accuracy
-- hallucination rate
-- retry usage statistics.
-
-Example observations from the experiment:
-
-- baseline JSON validity ≈ 90%
-- refusal accuracy ≈ 25%
-- hallucination rate ≈ 75%
-
-These results illustrate the challenges involved in building reliable LLM systems.
-
----
-
-# Key Takeaways
-
-This project highlights several important lessons in LLM engineering:
-
-1. Language models are **probabilistic generators**, not deterministic systems.
-2. Prompting alone is not enough to guarantee reliable structured outputs.
-3. Robust LLM pipelines require additional components such as:
-
-- validation layers
-- retry mechanisms
-- structured output constraints
-- evaluation metrics.
-
-Reliability comes not only from the model, but from the **system built around the model**.
-
----
-
-# Technologies Used
-
-- Python
-- Hugging Face Transformers
-- PyTorch
-- JSON validation techniques
-
----
-
-# Future Work
-
-Possible extensions of this project include:
-
-- schema-constrained decoding
-- automatic correction models
-- hallucination detection
-- advanced reliability metrics.
-
----
-
-# Author
-
-This repository was created as an educational project exploring the engineering challenges of building reliable LLM systems.
+Python · HuggingFace Transformers · PyTorch · JSON validation
